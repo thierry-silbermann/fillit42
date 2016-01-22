@@ -6,7 +6,7 @@
 #    By: tsilberm <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/01/21 16:02:22 by tsilberm          #+#    #+#              #
-#    Updated: 2016/01/21 16:31:36 by tsilberm         ###   ########.fr        #
+#    Updated: 2016/01/22 17:15:23 by tsilberm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ all: obj $(NAME)
 
 $(NAME): $(LIB) $(OBJS)
 	@$(CC) $(FLAGS) -o $@ $^ $(LIB_LINK)
-	@echo "Compiling" [ $(NAME) ] $(SUCCESS)
+	@echo "Compile" [ $(NAME) ] $(SUCCESS)
 
 $(LIB):
 	@make -C $(LIB_PATH)
@@ -63,12 +63,11 @@ obj:
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_DIR)/*.h
 	@$(CC) $(FLAGS) $(INCS) -c -o $@ $<
-	@echo "Linking" [ $< ] $(OK)
 
 clean:
 	@rm -f $(OBJS)
 	@rm -rf $(OBJ_DIR)
-	@echo "Cleaning" [ $(NAME) ] "..." $(OK)
+	@echo "Clean" [ $(NAME) ] "..." $(OK)
 
 fclean: clean
 	@rm -f $(NAME)

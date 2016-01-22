@@ -6,7 +6,7 @@
 #    By: ycribier <ycribier@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2013/11/26 16:39:11 by ycribier          #+#    #+#              #
-#    Updated: 2016/01/21 16:27:06 by tsilberm         ###   ########.fr        #
+#    Updated: 2016/01/22 17:14:51 by tsilberm         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,7 +97,7 @@ C_ERROR	=	"\033[31m"
 C_WARN	=	"\033[33m"
 
 # DBG MESSAGE
-SUCCESS	=	$(C_GOOD)SUCCESS$(C_NO)
+SUCCESS	=	$(C_GOOD)OK$(C_NO)
 OK		=	$(C_OK)OK$(C_NO)
 
 all: $(NAME)
@@ -105,15 +105,14 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	@ar rc $@ $^
 	@ranlib $@
-	@echo "Compiling & indexing" [ $(NAME) ] $(SUCCESS)
+	@echo "Compile" [ $(NAME) ] $(SUCCESS)
 
 %.o: %.c $(INCLUDES)/libft.h
 	@$(CC) -c -o $@ $< -I $(INCLUDES)
-#	@echo "Linking" [ $< ] $(OK)
 
 clean:
 	@rm -f $(OBJS)
-	@echo "Cleaning" [ $(NAME) ] "..." $(OK)
+	@echo "Clean" [ $(NAME) ] "..." $(OK)
 
 fclean: clean
 	@rm -f $(NAME)
